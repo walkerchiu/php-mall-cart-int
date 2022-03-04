@@ -1,0 +1,44 @@
+{
+    "name": "walkerchiu/php-mall-cart-int",
+    "type": "library",
+    "authors": [
+        {
+            "name":  "Walker Chiu",
+            "email": "chenjen.chiou@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.3",
+        "walkerchiu/php-core-int": "^1.0",
+        "walkerchiu/php-morph-image-int": "^1.0"
+    },
+    "suggest": {
+        "walkerchiu/php-mall-order-int": "^1.0",
+        "walkerchiu/php-mall-shelf-int": "^1.0",
+        "walkerchiu/php-site-int": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WalkerChiu\\MallCart\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WalkerChiu\\MallCart\\MallCartServiceProvider"
+            ],
+            "aliases": {
+                "Channel": "WalkerChiu\\MallCart\\Models\\Entities\\Channel",
+                "Item": "WalkerChiu\\MallCart\\Models\\Entities\\Item"
+            }
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
