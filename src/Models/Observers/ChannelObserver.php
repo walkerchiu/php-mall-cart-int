@@ -108,14 +108,17 @@ class ChannelObserver
      */
     public function deleted($entity)
     {
-        if (!config('php-mall-cart.soft_delete')) {
-            $entity->forceDelete();
-        }
-
         if ($entity->isForceDeleting()) {
             $entity->langs()->withTrashed()
                             ->forceDelete();
-            $entity->items()->withTrashed()->forceDelete();
+            $records = $entity->items()->withTrashed()->get();
+            foreach ($records as $recoed) {
+                $recoed->forceDelete();
+            }
+        }
+
+        if (!config('php-mall-cart.soft_delete')) {
+            $entity->forceDelete();
         }
     }
 
